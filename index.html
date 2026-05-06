@@ -336,6 +336,18 @@
     background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
     overflow: hidden; box-shadow: var(--shadow-sm);
   }
+  .track-delivery-bar {
+    padding: 20px 32px; border-bottom: 1px solid var(--border);
+    background: var(--status-delivered-bg);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .track-delivery-status { font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--status-delivered); margin-bottom: 4px; }
+  .track-delivery-date { font-size: 20px; font-weight: 700; color: var(--status-delivered); line-height: 1.2; margin-bottom: 3px; }
+  .track-delivery-sub { font-size: 12px; color: var(--status-delivered); opacity: 0.75; }
+  .track-delivery-address-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--status-delivered); opacity: 0.7; margin-bottom: 4px; }
+  .track-delivery-name { font-size: 14px; font-weight: 700; color: var(--status-delivered); }
+  .track-delivery-addr { font-size: 13px; color: var(--status-delivered); opacity: 0.8; line-height: 1.5; }
+  @media (max-width: 640px) { .track-delivery-bar { flex-direction: column; gap: 14px; } }
   .track-route {
     display: flex; align-items: center; gap: 10px;
     padding: 14px 32px; background: var(--bg); border-bottom: 1px solid var(--border);
@@ -1153,6 +1165,18 @@ function renderTracking(num) {
 
   output.innerHTML = `
     <div class="track-result-card fade-in">
+      <div class="track-delivery-bar">
+        <div>
+          <div class="track-delivery-status">Shipped</div>
+          <div class="track-delivery-date">Estimated Delivery: May 6 – 18</div>
+          <div class="track-delivery-sub">Estimated window based on current transit progress</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="track-delivery-address-label">Delivering To</div>
+          <div class="track-delivery-name">Bryan Reese</div>
+          <div class="track-delivery-addr">111 South Main St<br>West Milton, Ohio 45383</div>
+        </div>
+      </div>
       <div class="track-result-header">
         <div>
           <div class="track-number-label">Tracking Number</div>
