@@ -1192,7 +1192,7 @@ function renderTracking(num) {
     return;
   }
 
-  const hasHold = events.some(e => e.Status === HOLD_STATUS);
+  const hasHold = events[events.length - 1].Status === HOLD_STATUS;
   const overall = getOverallStatusLabel(events);
 
   // Build hold alert
